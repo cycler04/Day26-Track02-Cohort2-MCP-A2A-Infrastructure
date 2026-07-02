@@ -50,14 +50,14 @@ jupyter notebook day26_mcp_a2a_lab.ipynb
 
 ## Data Governance
 
-| Lớp | MCP | A2A |
-|-----|-----|-----|
-| **Capability matrix** | Chỉ `orchestrator` được gọi MCP tools | Orchestrator chỉ dispatch tới agent trong allowlist |
-| **SQL guard** | Chỉ SELECT, bảng `agent_metrics` | Tương tự trên `database_agent` |
-| **Rate limit** | 30 calls/phút/actor | 30 calls/phút/actor |
-| **Runaway prevention** | Tối đa 50 tool calls/task | Tối đa 50 dispatch/task |
-| **HITL** | PII trong SQL → cần phê duyệt | Thiếu `trace_id` → cần phê duyệt |
-| **Audit** | Mọi lần gọi → `logs/governance_audit.jsonl` | Mọi dispatch → audit log |
+| Lớp                         | MCP                                              | A2A                                                   |
+| ---------------------------- | ------------------------------------------------ | ----------------------------------------------------- |
+| **Capability matrix**  | Chỉ`orchestrator` được gọi MCP tools      | Orchestrator chỉ dispatch tới agent trong allowlist |
+| **SQL guard**          | Chỉ SELECT, bảng`agent_metrics`              | Tương tự trên`database_agent`                   |
+| **Rate limit**         | 30 calls/phút/actor                             | 30 calls/phút/actor                                  |
+| **Runaway prevention** | Tối đa 50 tool calls/task                      | Tối đa 50 dispatch/task                             |
+| **HITL**               | PII trong SQL → cần phê duyệt                | Thiếu`trace_id` → cần phê duyệt                |
+| **Audit**              | Mọi lần gọi →`logs/governance_audit.jsonl` | Mọi dispatch → audit log                            |
 
 Chỉnh policy tại `lab_utils/governance/policy.json`.
 
